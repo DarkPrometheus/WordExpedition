@@ -60,3 +60,22 @@ function setFlag(idiomaObjetivo) {
             break;
     }
 }
+
+function setFlagHome(idiomaObjetivo) {
+    switch (idiomaObjetivo) {
+        case "es":
+            imgConfig.src = "./img/flags/es.png"
+            break;
+        case "en":
+            imgConfig.src = "./img/flags/uk.png"
+            break;
+        case "fr":
+            imgConfig.src = "./img/flags/fr.png"
+            break;
+        case "ru":
+            imgConfig.src = "./img/flags/ru.png"
+            break;
+        default:
+            break;
+    }
+}
