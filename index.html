@@ -20,7 +20,7 @@
             </div>
             <div class="controls">
                 <a href="../index.html"><img src="../img/icons/home-white.png" alt=""></a>
-                <img id="imgConfig" src="../img/flags/uk.png">
+                <img id="imgConfig" src="./img/icons/loading-white.png">
             </div>
         </div>
         <div class="menu">
@@ -75,7 +75,7 @@
     <script>
         let config = {
             idiomaBase: "es",
-            idiomaObjetivo: "en"
+            idiomaObjetivo: "fr"
         }
         const imgConfig = document.getElementById('imgConfig');
         const modalConfig = document.getElementById('modalConfig');
@@ -123,6 +123,9 @@
 
             if (configRecuperado !== null) {
                 config = configRecuperado
+            }
+            else{
+                localStorage.setItem("config", JSON.stringify(config))
             }
             setFlag(config.idiomaObjetivo);
         }

@@ -18,7 +18,7 @@
             </div>
             <div class="controls">
                 <a href="../index.html"><img src="../img/icons/home-white.png" alt=""></a>
-                <img id="imgConfig" class="noClick" src="../img/flags/uk.png">
+                <img id="imgConfig" class="noClick" src="../img/icons/loading-white.png">
             </div>
         </div>
 
@@ -43,8 +43,8 @@
 
         // Etiquetas
         const exercisesDiv = document.getElementById('ex');
-        const content = document.getElementById('content')
-        let actualScoreB;
+        const content = document.getElementById('content');
+        let actualScoreB, totalScore, selectedWord;
 
         let config = {
             idiomaBase: "es",
@@ -80,7 +80,8 @@
             actualScoreB.id = 'actualScore';
             actualScoreB.textContent = '0'; // Valor inicial
 
-            const totalScore = document.createElement('b');
+            totalScore = document.createElement('b');
+            totalScore.id = 'totalScore';
             totalScore.textContent = words.length; // Valor inicial
 
             // Crea el nodo de texto para "de" y "terminados"
@@ -111,6 +112,7 @@
             const randomWord = incorrectWords[randomIndex];
 
             if (incorrectWords.length > 0) {
+                selectedWord = randomWord;
                 generateElement(randomWord)
             }
             else{
@@ -135,6 +137,9 @@
         function generateElement(word){
             const rowDiv = document.createElement('div');
             rowDiv.classList.add('row');
+
+            const div = document.createElement('div');
+            div.classList.add('separator');
 
             const wordParagraph = document.createElement('p');
             wordParagraph.textContent = word.word;
@@ -173,9 +178,25 @@
                 }
             });
 
+            const skip = document.createElement('p');
+            skip.innerText = 'Saltar';
+            skip.classList.add('skip');
+            skip.addEventListener('click', function(){
+                let newArray = words.filter(function(item) {
+                    return item !== selectedWord;
+                });
+                words = newArray;
+
+                totalScore.innerText = words.length;
+                console.log(words);
+                showNetxWord();
+            });
+
             container.appendChild(inputElement);
-            rowDiv.appendChild(wordParagraph);
-            rowDiv.appendChild(container);
+            div.appendChild(wordParagraph);
+            div.appendChild(container);
+            rowDiv.appendChild(div);
+            rowDiv.appendChild(skip);
             exercisesDiv.appendChild(rowDiv);
 
             inputElement.focus();
