@@ -1,0 +1,245 @@
+@import "./sass/mixins/flexbox";
+
+$title: rgb(255, 255, 255);
+$text: #c5c5c5;
+$background: #202020;
+$enfasis: #000000;
+
+*{
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $title;
+}
+a{
+    text-decoration: none;
+}
+p{
+    color: $text;
+}
+h1 a{
+    font-family: "Baskervville SC", serif;
+}
+
+body{
+    @include flex(column, 'center');
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 10px;
+    background-color: #101010;
+    .content{
+        @include flex(column, '');
+        width: 75vw;
+        height: 90vh;
+        background-color: $background;
+        border-radius: .5rem;
+        .title-container{
+            @include flex(row, '');
+            height: 15rem;
+            padding: 0;
+            .title{
+                flex: 3;
+                h1{
+                    font-size: 4rem;
+                    margin: 0;
+                    padding: 2rem;
+                }
+            }
+            .controls{
+                padding: 0 .4rem 0 0;
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                img{
+                    cursor: pointer;
+                    margin: .5rem;
+                    width: 3rem;
+                    height: 3rem;
+                }
+                a{
+                    height: 3rem;
+                }
+            }
+        }
+        .menu{
+            padding-top: 5rem;
+            flex: 1;
+            font-size: 2rem;
+            ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-block: 0;
+                padding-inline: 0;
+                li{
+                    @include flex(row, '');
+                    align-items: center;
+                    width: 80%;
+                    height: 8rem;
+                    list-style: none;
+                    margin: 1rem 0;
+                    .img{
+                        @include flex(row, 'center');
+                        width: 8rem;
+                        height: 100%;
+                        img{
+                            width: 80%;
+                            height: 80%;
+                        }
+                    }
+                    .descripcion{
+                        @include flex(row, '');
+                        flex: 1;
+                        height: 100%;
+                        padding: .2rem 1rem;
+                        border-bottom-right-radius: .5rem;
+                        border-bottom: 2px #202020 solid;
+                        border-right: 2px #202020 solid;
+                        @extend %hover;
+                        h2{
+                            font-size: 2rem;
+                        }
+                        p{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        #categories{
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6rem; /* Espacio entre las celdas del grid */
+            margin: 4rem; /* Margen alrededor del grid */
+            .element{
+                @include flex(column, 'center');
+                height: 10rem;
+                border-bottom: 2px solid black;
+                border-right: 2px solid black;
+                border-bottom-right-radius: 1rem;
+                p{
+                    font-size: 2rem;
+                }
+                img{
+                    width: 4rem;
+                }
+                &:hover{
+                    @extend %hover;
+                }
+            }
+        }
+        .score{
+            @include flex(column, 'center');
+            font-size: 2rem;
+        }
+        .exercises{
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            justify-content: center;
+            flex: 1;
+            margin-bottom: 12%;
+            .row{
+                @include flex('row', '');
+                width: 100%;
+                justify-content: space-evenly;
+                margin: .5rem 0;
+                p{
+                    font-size: 2.5rem;
+                    width: 50%;
+                    text-align: center;
+                }
+                .input-container{
+                    @include flex(row, 'center');
+                    width: 50%;
+                    input{
+                        width: 14rem;
+                        height: 100%;
+                        padding: 0 0 0 1rem;
+                        text-align: center;
+                        border: 0;
+                        border-bottom: 2px solid #202020;
+                        border-right: 2px solid #202020;
+                        border-bottom-right-radius: 1rem;
+                        border-top-left-radius: 1rem;
+                        background-color: #5f5f5f;
+                        font-size: 1.5rem;
+                        font-family: "Lato", sans-serif;
+                        color: white;
+
+                    }
+                }
+            }
+        }
+        .congratulatios{
+            @include flex(column, 'center');
+            flex: 1;
+            margin-bottom: 12%;
+            p{
+                font-size: 3rem;
+            }
+            a{
+                font-size: 1.5rem;
+                text-decoration: underline;
+            }
+        }
+    }
+    .config{
+        @include flex(column, 'center');
+        background-color: rgba($color: #1f1f1f, $alpha: .4);
+        position: fixed;
+        width: 75vw;
+        height: 90vh;
+        border-radius: .5rem;
+        .modalContent{
+            @include flex(column, 'center');
+            position: relative;
+            border-radius: 1rem;
+            background-color: #080808;
+            width: 75%;
+            height: 90%;
+            p{
+                font-size: 2rem;
+            }
+            .idiomas{
+                img{
+                    cursor: pointer;
+                    margin: 0 .4rem;
+                }
+            }
+            .close{
+                position: absolute;
+                cursor: pointer;
+                font-size: 1.5rem;
+                top: 2rem;
+                right: 2.5rem;
+            }
+        }
+    }
+    .hide{
+        display: none;
+    }
+    .noClick{
+        cursor: auto !important;
+    }
+}
+
+%hover{
+    transition: all 0.3s ease;
+    &:hover{
+        cursor: pointer;
+        background-color: $enfasis;
+        border-bottom-right-radius: 1rem;
+        border-bottom: 2px whitesmoke solid;
+        border-right: 2px whitesmoke solid;
+        border-top-left-radius: .5rem;
+        h2, p{
+            color: whitesmoke;
+        }
+    }
+}

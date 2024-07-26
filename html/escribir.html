@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escribir</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="content" class="content">
+        <div class="title-container">
+            <div class="title">
+                <h1>Prueba de vocabulario</h1>
+            </div>
+            <div class="controls">
+                <a href="../index.html"><img src="../img/icons/home-white.png" alt=""></a>
+                <img id="imgConfig" class="noClick" src="../img/flags/uk.png">
+            </div>
+        </div>
+
+        <div id="categories">
+
+        </div>
+        <div id="ex" class="exercises">
+            
+        </div>
+    </div>
+
+    <audio id="correct" src="../sounds/correct.wav"></audio>
+    <audio id="wrong" src="../sounds/wrong.wav"></audio>
+
+    <script src="../js/functions.js"></script>
+    <script type="module">
+        import { getData, getCategories } from "../js/exports.js"
+
+        // Sonidos
+        const correct = document.getElementById('correct');
+        const wrong = document.getElementById('wrong');
+
+        // Etiquetas
+        const exercisesDiv = document.getElementById('ex');
+        const content = document.getElementById('content')
+        let actualScoreB;
+
+        let config = {
+            idiomaBase: "es",
+            idiomaObjetivo: "en"
+        }
+        let words, score = 0, failCount = 0;
+        let categories = await getCategories({ ...config });
+
+        async function init() {
+            let configRecuperado = JSON.parse(localStorage.getItem("config"));
+            if (configRecuperado === null) {
+
+            } else {
+                config = configRecuperado
+            }
+
+            setFlag(config.idiomaObjetivo);
+            fillCategories(categories, getData, config, loadData);
+        }
+
+        function loadData(dataToFill){
+            words = dataToFill
+
+            // Crea la seccion de score
+            const scoreDiv = document.createElement('div')
+            scoreDiv.id = 'score'
+            scoreDiv.classList.add('score')
+
+            const text = document.createElement('p')
+            
+            // Crea los elementos <b> para las puntuaciones
+            actualScoreB = document.createElement('b');
+            actualScoreB.id = 'actualScore';
+            actualScoreB.textContent = '0'; // Valor inicial
+
+            const totalScore = document.createElement('b');
+            totalScore.textContent = words.length; // Valor inicial
+
+            // Crea el nodo de texto para "de" y "terminados"
+            const textNode1 = document.createTextNode(' de ');
+            const textNode2 = document.createTextNode(' terminados');
+
+            // Agrega todos los elementos al párrafo en el orden correcto
+            text.appendChild(actualScoreB);
+            text.appendChild(textNode1);
+            text.appendChild(totalScore);
+            text.appendChild(textNode2);
+            scoreDiv.appendChild(text)
+            content.insertBefore(scoreDiv, exercisesDiv);
+
+            showNetxWord()
+        }
+
+
+
+        function showNetxWord(){
+            while (exercisesDiv.firstChild) {
+                exercisesDiv.removeChild(exercisesDiv.firstChild);
+            }
+
+            // Palabra a enviar
+            const incorrectWords = words.filter(wordObj => !wordObj.correct);
+            const randomIndex = Math.floor(Math.random() * incorrectWords.length);
+            const randomWord = incorrectWords[randomIndex];
+
+            if (incorrectWords.length > 0) {
+                generateElement(randomWord)
+            }
+            else{
+                const scoreDiv = document.getElementById('score');
+                scoreDiv.remove();
+                exercisesDiv.remove();
+
+                const congratulatios = document.createElement('div');
+                congratulatios.classList.add('congratulatios');
+                const paragraph = document.createElement('p');
+                paragraph.innerText = "Felicidades!";
+                const link = document.createElement('a');
+                link.innerText = "Regresar al menu";
+                link.href = "./../index.html";
+
+                congratulatios.appendChild(paragraph);
+                congratulatios.appendChild(link);
+                content.appendChild(congratulatios);
+            }
+        }
+
+        function generateElement(word){
+            const rowDiv = document.createElement('div');
+            rowDiv.classList.add('row');
+
+            const wordParagraph = document.createElement('p');
+            wordParagraph.textContent = word.word;
+
+            const container = document.createElement('div');
+            container.classList.add('input-container');
+
+            const inputElement = document.createElement('input');
+            inputElement.id = 'input'
+            inputElement.type = 'text';
+            inputElement.addEventListener('keydown', function(){
+                if (event.keyCode === 13) {
+                    
+                    if(inputElement.value.toLowerCase() === word.meaning.toLowerCase()){
+                        correct.play();
+                        word.correct = true;
+                        score++;
+                        actualScoreB.innerText = score
+                        failCount = 0;
+                        showNetxWord();
+                    }
+                    else{
+                        failCount++;
+                        if (failCount === 3) {
+                            while (exercisesDiv.firstChild) {
+                                exercisesDiv.removeChild(exercisesDiv.firstChild);
+                            }
+                            showNetxWord();
+                            failCount = 0;
+                        }
+                        wrong.play();
+
+                        console.log(failCount)
+                        console.log(word)
+                    }
+                }
+            });
+
+            container.appendChild(inputElement);
+            rowDiv.appendChild(wordParagraph);
+            rowDiv.appendChild(container);
+            exercisesDiv.appendChild(rowDiv);
+
+            inputElement.focus();
+        }
+
+        init();
+    </script>
+</body>
+</html>

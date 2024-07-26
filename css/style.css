@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/**
+ * Mixin flex.
+ *
+ * Aplica un contenedor flexible con dirección y alineación personalizadas.
+ *
+ * Argumentos:
+ *   - $direction: Dirección del contenedor flexible (row, row-reverse, column, column-reverse).
+ *   - $center: Opcional. Centra los elementos horizontal y verticalmente dentro del contenedor si se establece en 'center'.
+ */
+* {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: #c5c5c5;
+}
+
+h1 a {
+  font-family: "Baskervville SC", serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 10px;
+  background-color: #101010;
+}
+body .content {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  height: 90vh;
+  background-color: #202020;
+  border-radius: 0.5rem;
+}
+body .content .title-container {
+  display: flex;
+  flex-direction: row;
+  height: 15rem;
+  padding: 0;
+}
+body .content .title-container .title {
+  flex: 3;
+}
+body .content .title-container .title h1 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 2rem;
+}
+body .content .title-container .controls {
+  padding: 0 0.4rem 0 0;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+body .content .title-container .controls img {
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+body .content .title-container .controls a {
+  height: 3rem;
+}
+body .content .menu {
+  padding-top: 5rem;
+  flex: 1;
+  font-size: 2rem;
+}
+body .content .menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-block: 0;
+  padding-inline: 0;
+}
+body .content .menu ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  height: 8rem;
+  list-style: none;
+  margin: 1rem 0;
+}
+body .content .menu ul li .img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 100%;
+}
+body .content .menu ul li .img img {
+  width: 80%;
+  height: 80%;
+}
+body .content .menu ul li .descripcion {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 100%;
+  padding: 0.2rem 1rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom: 2px #202020 solid;
+  border-right: 2px #202020 solid;
+}
+body .content .menu ul li .descripcion h2 {
+  font-size: 2rem;
+}
+body .content .menu ul li .descripcion p {
+  font-size: 1rem;
+}
+body .content #categories {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem; /* Espacio entre las celdas del grid */
+  margin: 4rem; /* Margen alrededor del grid */
+}
+body .content #categories .element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom-right-radius: 1rem;
+}
+body .content #categories .element p {
+  font-size: 2rem;
+}
+body .content #categories .element img {
+  width: 4rem;
+}
+body .content .score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+body .content .exercises {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: center;
+  flex: 1;
+  margin-bottom: 12%;
+}
+body .content .exercises .row {
+  display: flex;
+  flex-direction: "row";
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 0.5rem 0;
+}
+body .content .exercises .row p {
+  font-size: 2.5rem;
+  width: 50%;
+  text-align: center;
+}
+body .content .exercises .row .input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+body .content .exercises .row .input-container input {
+  width: 14rem;
+  height: 100%;
+  padding: 0 0 0 1rem;
+  text-align: center;
+  border: 0;
+  border-bottom: 2px solid #202020;
+  border-right: 2px solid #202020;
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background-color: #5f5f5f;
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+body .content .congratulatios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 12%;
+}
+body .content .congratulatios p {
+  font-size: 3rem;
+}
+body .content .congratulatios a {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+body .config {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(31, 31, 31, 0.4);
+  position: fixed;
+  width: 75vw;
+  height: 90vh;
+  border-radius: 0.5rem;
+}
+body .config .modalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 1rem;
+  background-color: #080808;
+  width: 75%;
+  height: 90%;
+}
+body .config .modalContent p {
+  font-size: 2rem;
+}
+body .config .modalContent .idiomas img {
+  cursor: pointer;
+  margin: 0 0.4rem;
+}
+body .config .modalContent .close {
+  position: absolute;
+  cursor: pointer;
+  font-size: 1.5rem;
+  top: 2rem;
+  right: 2.5rem;
+}
+body .hide {
+  display: none;
+}
+body .noClick {
+  cursor: auto !important;
+}
+
+body .content .menu ul li .descripcion, body .content #categories .element:hover {
+  transition: all 0.3s ease;
+}
+body .content .menu ul li .descripcion:hover, body .content #categories .element:hover {
+  cursor: pointer;
+  background-color: #000000;
+  border-bottom-right-radius: 1rem;
+  border-bottom: 2px whitesmoke solid;
+  border-right: 2px whitesmoke solid;
+  border-top-left-radius: 0.5rem;
+}
+body .content .menu ul li .descripcion:hover h2, body .content #categories .element:hover h2, body .content .menu ul li .descripcion:hover p, body .content #categories .element:hover p {
+  color: whitesmoke;
+}/*# sourceMappingURL=style.css.map */

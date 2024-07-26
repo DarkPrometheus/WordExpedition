@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordVoyage</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="content">
+        <div class="title-container">
+            <div class="title">
+                <h1>Word Voyage</h1>
+            </div>
+            <div class="controls">
+                <a href="../index.html"><img src="../img/icons/home-white.png" alt=""></a>
+                <img id="imgConfig" src="../img/flags/uk.png">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li id="escribir" onclick="redirectPage('escribir')">
+                    <div class="img">
+                        <img src="./img/icons/keyboard-white.png" alt="">
+                    </div>
+                    <div class="descripcion">
+                        <h2>Prueba de vocabulario</p>
+                            <p>Mejora tu vocabulario en una categoría escribiendo el significado de cada palabras. Si
+                                fallas dos veces seguidas, pasarás a otra palabra para volver a intentar la palabra que
+                                fallaste mas adelante.</p>
+                    </div>
+                </li>
+                <!--
+                <li id="relacionar" onclick="redirectPage('relacionar')">
+                    <div class="img">
+                        <img src="./img/map.png" alt="">
+                    </div>
+                    <div class="descripcion">
+                        <h2>Relacionar</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia neque laudantium, qui quibusdam quo hic tenetur! Corporis ullam ab, quaerat, delectus ducimus aspernatur temporibus doloremque, modi maxime provident voluptate aut.</p>
+                    </div>
+                </li>
+                <li id="completar" onclick="redirectPage('completar')">
+                    <div class="img">
+                        <img src="./img/fill.png" alt="">
+                    </div>
+                    <div class="descripcion">
+                        <h2>Completar</p>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia neque laudantium, qui quibusdam quo hic tenetur! Corporis ullam ab, quaerat, delectus ducimus aspernatur temporibus doloremque, modi maxime provident voluptate aut.</p>
+                    </div>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="modalConfig" class="config hide">
+        <div class="modalContent">
+            <div id="close" class="close">X</div>
+            <p>Selecciona un idioma</p>
+            <div class="idiomas">
+                <img id="es" src="./img/flags/es.png" alt="es">
+                <img id="en" src="./img/flags/uk.png" alt="uk">
+                <img id="fr" src="./img/flags/fr.png" alt="fr">
+                <img id="ru" src="./img/flags/ru.png" alt="ru">
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/functions.js"></script>
+    <script>
+        let config = {
+            idiomaBase: "es",
+            idiomaObjetivo: "en"
+        }
+        const imgConfig = document.getElementById('imgConfig');
+        const modalConfig = document.getElementById('modalConfig');
+        const closeModal = document.getElementById('close');
+
+        const es = document.getElementById('es');
+        const en = document.getElementById('en');
+        const fr = document.getElementById('fr');
+        const ru = document.getElementById('ru');
+
+        imgConfig.addEventListener("click", function () {
+            modalConfig.classList.remove('hide');
+        });
+        closeModal.addEventListener("click", function() {
+            modalConfig.classList.add('hide');
+        });
+
+        es.addEventListener("click", languageTargetClick);
+        en.addEventListener("click", languageTargetClick);
+        fr.addEventListener("click", languageTargetClick);
+        ru.addEventListener("click", languageTargetClick);
+
+        function languageTargetClick(event) {
+            modalConfig.classList.add('hide');
+
+            const elementoClicado = event.target;
+            const idiomaSeleccionado = elementoClicado.id;
+
+            if (idiomaSeleccionado === "es") {
+                config.idiomaObjetivo = "es"
+            } else if (idiomaSeleccionado === "en") {
+                config.idiomaObjetivo = "en"
+            } else if (idiomaSeleccionado === "fr") {
+                config.idiomaObjetivo = "fr"
+            } else if (idiomaSeleccionado === "ru") {
+                config.idiomaObjetivo = "ru"
+            }
+
+            localStorage.setItem("config", JSON.stringify(config))
+            setFlag(config.idiomaObjetivo)
+        }
+
+        function init() {
+            let configRecuperado = JSON.parse(localStorage.getItem("config"));
+
+            if (configRecuperado !== null) {
+                config = configRecuperado
+            }
+            setFlag(config.idiomaObjetivo);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

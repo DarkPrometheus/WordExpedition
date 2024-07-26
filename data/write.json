@@ -1,0 +1,138 @@
+{
+  "fr": {
+    "numeros": [
+      "Zéro",
+      "Un",
+      "Deux",
+      "Trois",
+      "Quatre",
+      "Cinq",
+      "Six",
+      "Sept",
+      "Huit",
+      "Neuf",
+      "Dix",
+      "Onze",
+      "Douze",
+      "Treize",
+      "Quatorze",
+      "Quinze",
+      "Seize",
+      "Dix-sept",
+      "Dix-huit",
+      "Dix-neuf",
+      "Vingt"
+    ],
+    "dias de la semana": [
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
+      "Dimanche"
+    ]
+  },
+  "es": {
+    "numeros": [
+      "Cero",
+      "Uno",
+      "Dos",
+      "Tres",
+      "Cuatro",
+      "Cinco",
+      "Seis",
+      "Siete",
+      "Ocho",
+      "Nueve",
+      "Diez",
+      "Once",
+      "Doce",
+      "Trece",
+      "Catorce",
+      "Quince",
+      "Dieciséis",
+      "Diecisiete",
+      "Dieciocho",
+      "Diecinueve",
+      "Veinte"
+    ],
+    "dias de la semana": [
+      "Lunes",
+      "Martes",
+      "Miércoles",
+      "Jueves",
+      "Viernes",
+      "Sábado",
+      "Domingo"
+    ]
+  },
+  "en": {
+    "numeros": [
+      "Zero",
+      "One",
+      "Two",
+      "Three",
+      "Four",
+      "Five",
+      "Six",
+      "Seven",
+      "Eight",
+      "Nine",
+      "Ten",
+      "Eleven",
+      "Twelve",
+      "Thirteen",
+      "Fourteen",
+      "Fifteen",
+      "Sixteen",
+      "Seventeen",
+      "Eighteen",
+      "Nineteen",
+      "Twenty"
+    ],
+    "dias de la semana": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ]
+  },
+  "ru": {
+    "numeros": [
+      "Ноль",
+      "Один",
+      "Два",
+      "Три",
+      "Четыре",
+      "Пять",
+      "Шесть",
+      "Семь",
+      "Восемь",
+      "Девять",
+      "Десять",
+      "Одиннадцать",
+      "Двенадцать",
+      "Тринадцать",
+      "Четырнадцать",
+      "Пятнадцать",
+      "Шестнадцать",
+      "Семнадцать",
+      "Восемнадцать",
+      "Девятнадцать",
+      "Двадцать"
+    ],
+    "dias de la semana": [
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
+      "Воскресенье"
+    ]
+  }
+}
