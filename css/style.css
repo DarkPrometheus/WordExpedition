@@ -268,4 +268,188 @@ body .content .menu ul li .descripcion:hover, body .content #categories .element
 }
 body .content .menu ul li .descripcion:hover h2, body .content #categories .element:hover h2, body .content .menu ul li .descripcion:hover p, body .content #categories .element:hover p {
   color: whitesmoke;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: #202020;
+  }
+  body .content {
+    width: 100%;
+    height: 100vh;
+    background-color: #202020;
+    border-radius: 0;
+  }
+  body .content .title-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex-direction: column-reverse;
+    margin-top: 0.5rem;
+  }
+  body .content .title-container .title h1 {
+    font-size: 2rem;
+    padding: 0 0 0 1.5rem;
+  }
+  body .content .title-container .controls {
+    padding: 0 1rem 0 0;
+  }
+  body .content .menu {
+    padding-top: 2rem;
+  }
+  body .content .menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-block: 0;
+    padding-inline: 0;
+  }
+  body .content .menu ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    list-style: none;
+    margin: 1rem 0;
+  }
+  body .content .menu ul li .img {
+    width: auto;
+  }
+  body .content .menu ul li .img img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  body .content .menu ul li .descripcion h2 {
+    font-size: 1rem;
+  }
+  body .content .menu ul li .descripcion p {
+    font-size: 0.75rem;
+  }
+  body .content #categories {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Espacio entre las celdas del grid */
+    margin: 1rem; /* Margen alrededor del grid */
+  }
+  body .content #categories .element {
+    height: 7.5rem;
+    padding: 0;
+  }
+  body .content #categories .element p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.7rem 0 0 0;
+  }
+  body .content #categories .element img {
+    width: 3.5rem;
+  }
+  body .content .score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  body .content .exercises {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 12%;
+  }
+  body .content .exercises .row {
+    display: flex;
+    flex-direction: "row";
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 0.5rem 0;
+  }
+  body .content .exercises .row p {
+    font-size: 2.5rem;
+    width: 50%;
+    text-align: center;
+  }
+  body .content .exercises .row .input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  body .content .exercises .row .input-container input {
+    width: 14rem;
+    height: 100%;
+    padding: 0 0 0 1rem;
+    text-align: center;
+    border: 0;
+    border-bottom: 2px solid #202020;
+    border-right: 2px solid #202020;
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    background-color: #5f5f5f;
+    font-size: 1.5rem;
+    font-family: "Lato", sans-serif;
+    color: white;
+  }
+  body .content .congratulatios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-bottom: 12%;
+  }
+  body .content .congratulatios p {
+    font-size: 3rem;
+  }
+  body .content .congratulatios a {
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+  body .config {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(31, 31, 31, 0.4);
+    position: fixed;
+    width: 75vw;
+    height: 90vh;
+    border-radius: 0.5rem;
+  }
+  body .config .modalContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 1rem;
+    background-color: #080808;
+    width: 75%;
+    height: 90%;
+  }
+  body .config .modalContent p {
+    font-size: 2rem;
+  }
+  body .config .modalContent .idiomas img {
+    cursor: pointer;
+    margin: 0 0.4rem;
+  }
+  body .config .modalContent .close {
+    position: absolute;
+    cursor: pointer;
+    font-size: 1.5rem;
+    top: 2rem;
+    right: 2.5rem;
+  }
+  body .hide {
+    display: none;
+  }
+  body .noClick {
+    cursor: auto !important;
+  }
 }/*# sourceMappingURL=style.css.map */
