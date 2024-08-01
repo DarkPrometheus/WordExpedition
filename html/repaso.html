@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="content" class="content">
+        <div class="title-container">
+            <div class="title">
+                <h1>Repaso de palabras</h1>
+            </div>
+            <div class="controls">
+                <a href="../index.html"><img src="../img/icons/home.svg" alt=""></a>
+                <img id="imgConfig" class="noClick" src="../img/icons/loading-white.png">
+            </div>
+        </div>
+
+        <div id="categories">
+            
+        </div>
+        <div id="audios" class="audios">
+        </div>
+    </div>
+
+    <script src="../js/functions.js"></script>
+    <script type="module">
+        import { getConfig, getCategories, getAudios } from "../js/exports.js"
+        let config = await getConfig();
+        let categories = await getCategories({ ...config });
+
+        async function init() {
+            setFlag(config.idiomaObjetivo);
+
+            fillCategories(categories, getAudios, config, loadData);
+        }
+
+        function loadData(audios){
+            console.log(audios)
+            const divAudios = document.getElementById('audios');
+
+            for (let i = 0; i < audios.length; i++) {
+                const element = audios[i];
+
+                const divAudio = document.createElement('div');
+                divAudio.classList.add('audio');
+                const word = document.createElement('p');
+                word.innerText = element.name;
+
+                const audio = document.createElement('audio');
+                audio.src = element.link;
+                audio.controls = true;
+
+                divAudio.appendChild(word);
+                divAudio.appendChild(audio);
+                divAudios.appendChild(divAudio);
+            }
+        }
+        
+        init();
+    </script>
+</body>
+</html>

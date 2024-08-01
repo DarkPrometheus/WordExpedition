@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordVoyage</title>
+    <title>Word Expedition</title>
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,41 +18,32 @@
                 <h1>Word Expedition</h1>
             </div>
             <div class="controls">
-                <a href="../index.html"><img src="./img/icons/home-white.png" alt=""></a>
+                <a href="../index.html">
+                    <img src="./img/icons/home.svg" alt="">
+                </a>
                 <img id="imgConfig" src="./img/icons/loading-white.png">
             </div>
         </div>
         <div class="menu">
             <ul>
-                <li id="escribir" onclick="redirectPage('escribir')">
+                <li onclick="redirectPage('escribir')">
                     <div class="img">
-                        <img src="./img/icons/keyboard-white.png" alt="">
+                        <img src="./img/icons/abc.svg" alt="">
                     </div>
                     <div class="descripcion">
                         <h2>Prueba de vocabulario</p>
                         <p>Mejora tu vocabulario en una categoría escribiendo el significado de cada palabras. Si fallas dos veces seguidas, pasarás a otra palabra para volver a intentar la palabra que fallaste mas adelante.</p>
                     </div>
                 </li>
-                <!--
-                <li id="relacionar" onclick="redirectPage('relacionar')">
+                <li onclick="redirectPage('repaso')">
                     <div class="img">
-                        <img src="./img/map.png" alt="">
+                        <img src="./img/icons/sound.svg" alt="">
                     </div>
                     <div class="descripcion">
-                        <h2>Relacionar</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia neque laudantium, qui quibusdam quo hic tenetur! Corporis ullam ab, quaerat, delectus ducimus aspernatur temporibus doloremque, modi maxime provident voluptate aut.</p>
+                        <h2>Repaso de palabras</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore aspernatur fugit fuga molestiae ut, accusantium sunt impedit vitae repudiandae temporibus, error nam laboriosam? Non earum ipsam, ipsum cumque cupiditate inventore?</p>
                     </div>
                 </li>
-                <li id="completar" onclick="redirectPage('completar')">
-                    <div class="img">
-                        <img src="./img/fill.png" alt="">
-                    </div>
-                    <div class="descripcion">
-                        <h2>Completar</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia neque laudantium, qui quibusdam quo hic tenetur! Corporis ullam ab, quaerat, delectus ducimus aspernatur temporibus doloremque, modi maxime provident voluptate aut.</p>
-                    </div>
-                </li>
-                -->
             </ul>
         </div>
     </div>
@@ -72,11 +62,10 @@
     </div>
 
     <script src="./js/functions.js"></script>
-    <script>
-        let config = {
-            idiomaBase: "es",
-            idiomaObjetivo: "fr"
-        }
+    <script type="module">
+        import { getConfig } from "../js/exports.js"
+
+        let config = await getConfig();
         const imgConfig = document.getElementById('imgConfig');
         const modalConfig = document.getElementById('modalConfig');
         const closeModal = document.getElementById('close');
@@ -119,14 +108,6 @@
         }
 
         function init() {
-            let configRecuperado = JSON.parse(localStorage.getItem("config"));
-
-            if (configRecuperado !== null) {
-                config = configRecuperado
-            }
-            else{
-                localStorage.setItem("config", JSON.stringify(config))
-            }
             setFlagHome(config.idiomaObjetivo);
         }
 

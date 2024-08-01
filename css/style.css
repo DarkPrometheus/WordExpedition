@@ -66,7 +66,7 @@ body .content .title-container .controls {
   display: flex;
   justify-content: flex-end;
 }
-body .content .title-container .controls img {
+body .content .title-container .controls img, body .content .title-container .controls svg {
   cursor: pointer;
   margin: 0.5rem;
   width: 3rem;
@@ -105,7 +105,7 @@ body .content .menu ul li .img {
   width: 8rem;
   height: 100%;
 }
-body .content .menu ul li .img img {
+body .content .menu ul li .img img, body .content .menu ul li .img svg {
   width: 80%;
   height: 80%;
 }
@@ -163,25 +163,25 @@ body .content .exercises {
   flex: 1;
   margin-bottom: 12%;
 }
-body .content .exercises .row {
+body .content .exercises .row .separator {
   display: flex;
   flex-direction: "row";
   width: 100%;
   justify-content: space-evenly;
 }
-body .content .exercises .row p {
+body .content .exercises .row .separator p {
   font-size: 2.5rem;
   width: 50%;
   text-align: center;
 }
-body .content .exercises .row .input-container {
+body .content .exercises .row .separator .input-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 50%;
 }
-body .content .exercises .row .input-container input {
+body .content .exercises .row .separator .input-container input {
   width: 14rem;
   height: 100%;
   padding: 0 0 0 1rem;
@@ -195,6 +195,55 @@ body .content .exercises .row .input-container input {
   font-size: 1.5rem;
   font-family: "Lato", sans-serif;
   color: white;
+}
+body .content .exercises .row .skip {
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  color: whitesmoke;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  text-align: center;
+}
+body .content .audios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  overflow: auto;
+}
+body .content .audios .audio {
+  position: relative;
+  height: 5rem;
+  width: 25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 4rem 1rem;
+}
+body .content .audios .audio p {
+  position: absolute;
+  top: -18px;
+  right: 5%;
+  padding: 0 5px;
+  margin: 0;
+  font-size: 28px;
+  background: #202020;
+}
+body .content .audios .audio button {
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  margin: 20px 2.5% 20px 2.5%;
+  background-color: #007db5;
 }
 body .content .congratulatios {
   display: flex;
@@ -232,13 +281,14 @@ body .config .modalContent {
   padding-top: 4rem;
   border-radius: 1rem;
   background-color: #080808;
-  width: 75%;
-  height: 90%;
+  width: 90%;
+  height: 95%;
 }
 body .config .modalContent p {
   font-size: 2rem;
 }
 body .config .modalContent .idiomas img {
+  width: 5rem;
   cursor: pointer;
   margin: 0 0.4rem;
 }
@@ -383,16 +433,6 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
     width: 10rem;
     font-size: 1rem;
   }
-  body .content .exercises .row .skip {
-    width: 100%;
-    font-size: 1.5rem;
-    text-decoration: underline;
-    color: whitesmoke;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-    cursor: pointer;
-  }
   body .content .congratulatios {
     display: flex;
     flex-direction: column;
@@ -410,6 +450,17 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
     -webkit-user-select: none;
        -moz-user-select: none;
             user-select: none;
+  }
+  body .content .audios {
+    width: 100%;
+    padding: 2rem 0;
+  }
+  body .content .audios .audio {
+    padding: 3.5rem 0;
+    width: 18rem;
+  }
+  body .content .audios .audio audio {
+    width: 15rem;
   }
   body .config {
     display: flex;
@@ -433,9 +484,9 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
     font-size: 1.5rem;
   }
   body .config .modalContent .idiomas img {
+    cursor: pointer;
     width: 4rem;
     height: 4rem;
-    cursor: pointer;
     margin: 0 0.4rem;
   }
   body .config .modalContent .close {

@@ -51,7 +51,7 @@ body{
                 flex: 1;
                 display: flex;
                 justify-content: flex-end;
-                img{
+                img, svg{
                     cursor: pointer;
                     margin: .5rem;
                     width: 3rem;
@@ -84,7 +84,7 @@ body{
                         @include flex(row, 'center');
                         width: 8rem;
                         height: 100%;
-                        img{
+                        img, svg{
                             width: 80%;
                             height: 80%;
                         }
@@ -145,33 +145,82 @@ body{
             flex: 1;
             margin-bottom: 12%;
             .row{
-                @include flex('row', '');
-                width: 100%;
-                justify-content: space-evenly;
-                p{
-                    font-size: 2.5rem;
-                    width: 50%;
+                .separator{
+                    @include flex('row', '');
+                    width: 100%;
+                    justify-content: space-evenly;
+                    p{
+                        font-size: 2.5rem;
+                        width: 50%;
+                        text-align: center;
+                    }
+                    .input-container{
+                        @include flex(row, 'center');
+                        width: 50%;
+                        input{
+                            width: 14rem;
+                            height: 100%;
+                            padding: 0 0 0 1rem;
+                            text-align: center;
+                            border: 0;
+                            border-bottom: 2px solid #202020;
+                            border-right: 2px solid #202020;
+                            border-bottom-right-radius: 1rem;
+                            border-top-left-radius: 1rem;
+                            background-color: #5f5f5f;
+                            font-size: 1.5rem;
+                            font-family: "Lato", sans-serif;
+                            color: white;
+
+                        }
+                    }
+                }
+                .skip{
+                    width: 100%;
+                    cursor: pointer;
+                    font-size: 1.5rem;
+                    text-decoration: underline;
+                    color: whitesmoke;
+                    user-select: none;
                     text-align: center;
                 }
-                .input-container{
-                    @include flex(row, 'center');
-                    width: 50%;
-                    input{
-                        width: 14rem;
-                        height: 100%;
-                        padding: 0 0 0 1rem;
-                        text-align: center;
-                        border: 0;
-                        border-bottom: 2px solid #202020;
-                        border-right: 2px solid #202020;
-                        border-bottom-right-radius: 1rem;
-                        border-top-left-radius: 1rem;
-                        background-color: #5f5f5f;
-                        font-size: 1.5rem;
-                        font-family: "Lato", sans-serif;
-                        color: white;
-
-                    }
+            }
+        }
+        .audios{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 2rem;
+            overflow: auto;
+            .audio{
+                position: relative;
+                height: 5rem;
+                width: 25rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid black;
+                padding: 4rem 1rem;
+                p{
+                    position: absolute;
+                    top: -18px;
+                    right: 5%;
+                    padding: 0 5px;
+                    margin: 0;
+                    font-size: 28px;
+                    background: $background;
+                }
+                button {
+                    cursor: pointer;
+                    padding: 0;
+                    border: 0;
+                    outline: none;
+                    width: 40px;
+                    height: 40px;
+                    margin: 20px 2.5% 20px 2.5%;
+                    background-color: #007db5;
                 }
             }
         }
@@ -202,13 +251,14 @@ body{
             padding-top: 4rem;
             border-radius: 1rem;
             background-color: #080808;
-            width: 75%;
-            height: 90%;
+            width: 90%;
+            height: 95%;
             p{
                 font-size: 2rem;
             }
             .idiomas{
                 img{
+                    width: 5rem;
                     cursor: pointer;
                     margin: 0 .4rem;
                 }
@@ -354,14 +404,6 @@ body{
                             }
                         }
                     }
-                    .skip{
-                        width: 100%;
-                        font-size: 1.5rem;
-                        text-decoration: underline;
-                        color: whitesmoke;
-                        user-select: none;
-                        cursor: pointer;
-                    }
                 }
             }
             .congratulatios{
@@ -375,6 +417,17 @@ body{
                     font-size: 1.5rem;
                     text-decoration: underline;
                     user-select: none;
+                }
+            }
+            .audios{
+                width: 100%;
+                padding: 2rem 0;
+                .audio{
+                    padding: 3.5rem 0;
+                    width: 18rem;
+                    audio{
+                        width: 15rem;
+                    }
                 }
             }
         }
@@ -396,9 +449,9 @@ body{
                 }
                 .idiomas{
                     img{
+                        cursor: pointer;
                         width: 4rem;
                         height: 4rem;
-                        cursor: pointer;
                         margin: 0 .4rem;
                     }
                 }

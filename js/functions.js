@@ -3,11 +3,8 @@ function redirectPage(id) {
         case "escribir":
             window.location.href = "./html/escribir.html";
             break;
-        case "relacionar":
-            window.location.href = "./html/relacionar.html";
-            break;
-        case "completar":
-            window.location.href = "./html/completar.html";
+        case "repaso":
+            window.location.href = "./html/repaso.html";
             break;
         default:
             console.log("ID no reconocido");
@@ -23,13 +20,17 @@ function fillCategories(categories, getData, config, loadData){
         elementDiv.id = categorie.id
 
         const img = document.createElement('img');
-        img.src = "../img/categories/" + categorie.id + ".png"
+        img.id = categorie.id;
+        img.src = "../img/categories/" + categorie.id + ".svg"
+        console.log(categorie.id)
 
         const p = document.createElement('p');
+        p.id = categorie.id;
         p.textContent = categorie.nombre
 
         elementDiv.addEventListener('click', async function (event) {
             config.key = event.srcElement.id
+            console.log(event.srcElement)
 
             let dataToFiil = await getData(config);
             categoriesDiv.remove()
