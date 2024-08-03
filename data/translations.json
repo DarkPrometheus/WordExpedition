@@ -1,0 +1,66 @@
+{
+    "es": {
+        "index": {
+            "title_01": "Prueba de vocabulario",
+            "paragraph_01": "Mejora tu vocabulario en una categoría escribiendo el significado de cada palabras. Si fallas dos veces seguidas, pasarás a otra palabra para volver a intentar la palabra que fallaste mas adelante.",
+            "title_02": "Repaso de palabras",
+            "paragraph_02": "Selecciona una categoría y escucha la pronunciación correcta de cada palabra para mejorar tu habilidad auditiva y de pronunciación.",
+            "paragraph_03": "Seleccionar idioma a estudiar",
+            "paragraph_04": "Cambiar idioma de la página"
+        },
+        "escribir": {
+            "title_01": "Prueba de vocabulario"
+        },
+        "repaso": {
+            "title_01": "Repaso de palabras"
+        }
+    },
+    "en": {
+        "index": {
+            "title_01": "Vocabulary Test",
+            "paragraph_01": "Improve your vocabulary in a category by writing the meaning of each word. If you fail twice in a row, you will move on to another word and retry the failed word later.",
+            "title_02": "Word Review",
+            "paragraph_02": "Select a category and listen to the correct pronunciation of each word to improve your listening and pronunciation skills.",
+            "paragraph_03": "Select language to study",
+            "paragraph_04": "Change page language"
+        },
+        "escribir": {
+            "title_01": "Vocabulary Test"
+        },
+        "repaso": {
+            "title_01": "Word Review"
+        }
+    },
+    "ru": {
+        "index": {
+            "title_01": "Тест словарного запаса",
+            "paragraph_01": "Улучшите свой словарный запас в категории, написав значение каждого слова. Если вы ошибетесь два раза подряд, вы перейдете к другому слову и позже повторите попытку неудавшегося слова.",
+            "title_02": "Обзор слов",
+            "paragraph_02": "Выберите категорию и прослушайте правильное произношение каждого слова, чтобы улучшить свои навыки аудирования и произношения.",
+            "paragraph_03": "Выбрать язык для изучения",
+            "paragraph_04": "Изменить язык страницы"
+        },
+        "escribir": {
+            "title_01": "Тест словарного запаса"
+        },
+        "repaso": {
+            "title_01": "Обзор слов"
+        }
+    },
+    "fr": {
+        "index": {
+            "title_01": "Test de vocabulaire",
+            "paragraph_01": "Améliorez votre vocabulaire dans une catégorie en écrivant la signification de chaque mot. Si vous échouez deux fois de suite, vous passerez à un autre mot et réessayerez le mot raté plus tard.",
+            "title_02": "Révision de mots",
+            "paragraph_02": "Sélectionnez une catégorie et écoutez la prononciation correcte de chaque mot pour améliorer vos compétences d'écoute et de prononciation.",
+            "paragraph_03": "Sélectionner la langue à étudier",
+            "paragraph_04": "Changer la langue de la page"
+        },
+        "escribir": {
+            "title_01": "Test de vocabulaire"
+        },
+        "repaso": {
+            "title_01": "Choisissez une langue"
+        }
+    }
+}

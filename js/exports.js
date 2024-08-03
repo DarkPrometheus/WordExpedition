@@ -1,58 +1,44 @@
 export async function getData({idiomaBase, idiomaObjetivo, key}) {
-    return new Promise((resolve, reject) => {
-        fetch("../data/write.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let words = [];
+    try {
+        const response = await fetch("../data/escribir.json");
+        const data = await response.json();
 
-                let dataBase = data[idiomaBase][key];
-                let dataObjetivo = data[idiomaObjetivo][key];
+        let words = [];
+        let dataBase = data[idiomaBase][key];
+        let dataObjetivo = data[idiomaObjetivo][key];
 
-                for (let i = 0; i < dataBase.length; i++) {
-                    words.push(new Word(dataBase[i], dataObjetivo[i]));
-                }
+        for (let i = 0; i < dataBase.length; i++) {
+            words.push(new Word(dataBase[i], dataObjetivo[i]));
+        }
 
-                resolve(words);
-            })
-            .catch(error => {
-                console.error('Error al leer el archivo JSON:', error);
-                reject(error);
-            });
-    });
+        return words;
+    } catch (error) {
+        console.error('Error al leer el archivo JSON:', error);
+        throw error;
+    }
 }
 
 export async function getCategories({idiomaBase}) {
-    return new Promise((resolve, reject) => {
-        fetch("../data/categories.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let categories = [];
-                data.es.forEach(element =>{
-                    categories.push({id: element.toLowerCase(), nombre: ""})
-                })
-                for (let i = 0; i < categories.length; i++) {
-                    const element = categories[i];
-                    element.nombre = data[idiomaBase][i]
-                }
-                
-                resolve(categories);
-            })
-            .catch(error => {
-                console.error('Error al leer el archivo JSON:', error);
-                reject(error);
-            });
-    });
+    try {
+        const response = await fetch("../data/categories.json");
+        const data = await response.json();
+
+        let categories = [];
+        data.es.forEach(element => {
+            categories.push({id: element.toLowerCase(), nombre: ""});
+        });
+
+        for (let i = 0; i < categories.length; i++) {
+            categories[i].nombre = data[idiomaBase][i];
+        }
+
+        return categories;
+    } catch (error) {
+        console.error('Error al leer el archivo JSON:', error);
+        throw error;
+    }
 }
+
 
 export async function getConfig(){
     let config = { idiomaBase: "es", idiomaObjetivo: "fr" }
@@ -65,36 +51,34 @@ export async function getConfig(){
     }
 }
 
-export function getAudios({idiomaObjetivo, key}){
-    console.log(key)
-    let dropboxBaseUrl = "https://www.dropbox.com/scl/fi/"
+export async function getAudios({idiomaObjetivo, key}) {
+    let dropboxBaseUrl = "https://www.dropbox.com/scl/fi/";
 
-    return new Promise((resolve, reject) => {
-        fetch("../data/audio-links.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                let audios = [];
-                let listAudios = data[idiomaObjetivo][key];
-                for (const key in listAudios) {
-                    if (listAudios.hasOwnProperty(key)) {
-                        let link = dropboxBaseUrl + listAudios[key];
-                        //let link = listAudios[key];
-                        audios.push(new Audio(key, link))
-                    }
-                }
+    try {
+        const response = await fetch("../data/audio-links.json");
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
 
-                resolve(audios);
-            })
-            .catch(error => {
-                console.error('Error al leer el archivo JSON:', error);
-                reject(error);
-            });
-    });
+        let audios = [];
+        let listAudios = data[idiomaObjetivo][key];
+        for (const audioKey in listAudios) {
+            if (listAudios.hasOwnProperty(audioKey)) {
+                let link = dropboxBaseUrl + listAudios[audioKey];
+                audios.push(new Audio(audioKey, link));
+            }
+        }
+
+        return audios;
+    } catch (error) {
+        console.error('Error al leer el archivo JSON:', error);
+        throw error;
+    }
+}
+
+export function getElement(element){
+    return document.getElementById(element);
 }
 
 /** Objetos **/

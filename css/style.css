@@ -111,7 +111,7 @@ body .content .menu ul li .img img, body .content .menu ul li .img svg {
 }
 body .content .menu ul li .descripcion {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
   height: 100%;
   padding: 0.2rem 1rem;

@@ -90,7 +90,7 @@ body{
                         }
                     }
                     .descripcion{
-                        @include flex(row, '');
+                        @include flex(column, '');
                         flex: 1;
                         height: 100%;
                         padding: .2rem 1rem;

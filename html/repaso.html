@@ -14,7 +14,7 @@
     <div id="content" class="content">
         <div class="title-container">
             <div class="title">
-                <h1>Repaso de palabras</h1>
+                <h1 id="title_01"></h1>
             </div>
             <div class="controls">
                 <a href="../index.html"><img src="../img/icons/home.svg" alt=""></a>
@@ -22,16 +22,13 @@
             </div>
         </div>
 
-        <div id="categories">
-            
-        </div>
-        <div id="audios" class="audios">
-        </div>
+        <div id="categories"></div>
+        <div id="audios" class="audios"></div>
     </div>
 
     <script src="../js/functions.js"></script>
     <script type="module">
-        import { getConfig, getCategories, getAudios } from "../js/exports.js"
+        import { getConfig, getCategories, getAudios, getElement } from "../js/exports.js"
         let config = await getConfig();
         let categories = await getCategories({ ...config });
 
@@ -39,10 +36,11 @@
             setFlag(config.idiomaObjetivo);
 
             fillCategories(categories, getAudios, config, loadData);
+            let text = await getPageText(config, "index");
+            getElement("title_01").innerText = text.title_01;
         }
 
         function loadData(audios){
-            console.log(audios)
             const divAudios = document.getElementById('audios');
 
             for (let i = 0; i < audios.length; i++) {

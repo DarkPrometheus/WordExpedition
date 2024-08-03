@@ -14,7 +14,7 @@
     <div id="content" class="content">
         <div class="title-container">
             <div class="title">
-                <h1>Prueba de vocabulario</h1>
+                <h1 id="title_01"></h1>
             </div>
             <div class="controls">
                 <a href="../index.html"><img src="../img/icons/home.svg" alt=""></a>
@@ -22,12 +22,8 @@
             </div>
         </div>
 
-        <div id="categories">
-
-        </div>
-        <div id="ex" class="exercises">
-            
-        </div>
+        <div id="categories"></div>
+        <div id="ex" class="exercises"></div>
     </div>
 
     <audio id="correct" src="../sounds/correct.wav"></audio>
@@ -35,7 +31,7 @@
 
     <script src="../js/functions.js"></script>
     <script type="module">
-        import { getData, getCategories, getConfig } from "../js/exports.js"
+        import { getData, getCategories, getConfig, getElement } from "../js/exports.js"
 
         // Sonidos
         const correct = document.getElementById('correct');
@@ -53,6 +49,8 @@
         async function init() {
             setFlag(config.idiomaObjetivo);
             fillCategories(categories, getData, config, loadData);
+            let text = await getPageText(config, "index");
+            getElement("title_01").innerText = text.title_01;
         }
 
         function loadData(dataToFill){

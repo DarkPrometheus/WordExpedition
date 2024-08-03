@@ -80,3 +80,19 @@ function setFlagHome(idiomaObjetivo) {
             break;
     }
 }
+
+async function getPageText(config, idPage) {
+    let lg = config.idiomaBase;
+
+    try {
+        const response = await fetch("../data/translations.json");
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        let text = data[lg][idPage];
+        return text;
+    } catch (error) {
+        console.error('Error al leer el archivo JSON:', error);
+    }
+}
