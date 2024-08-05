@@ -311,12 +311,16 @@ body{
                 margin-top: .5rem;
                 .title{
                     h1{
-                        font-size: 2rem;
+                        font-size: 1.5rem;
                         padding: 0 0 0 1.5rem;
                     }
                 }
                 .controls{
                     padding: 0 1rem 0 0;
+                    img{
+                        width: 2rem;
+                        height: 2rem;
+                    }
                 }
             }
             .menu{
@@ -376,7 +380,7 @@ body{
             }
             .score{
                 margin-top: 2rem;
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
             .exercises{
                 display: flex;
@@ -389,17 +393,21 @@ body{
                     flex-direction: column;
                     .separator{
                         width: 100%;
-                        @include flex('row', '');
+                        flex-direction: column;
+                        align-items: center;
+                        margin-bottom: .5rem;
                         p{
-                            font-size: 2rem;
-                            width: 40%;
+                            font-size: 1.5rem;
+                            width: 100%;
                             text-align: center;
+                            margin-bottom: .5rem
                         }
                         .input-container{
                             @include flex(row, 'center');
-                            width: 60%;
+                            width: 100%;
                             input{
                                 width: 10rem;
+                                height: 2rem;
                                 font-size: 1rem;
                             }
                         }

@@ -9,7 +9,12 @@
             "paragraph_04": "Cambiar idioma de la página"
         },
         "escribir": {
-            "title_01": "Prueba de vocabulario"
+            "title_01": "Prueba de vocabulario",
+            "congratulations": "Felicidades!",
+            "back_to_menu": "Regresar al menu",
+            "skip": "Saltar",
+            "score_01": "de",
+            "score_02": "terminados"
         },
         "repaso": {
             "title_01": "Repaso de palabras"
@@ -25,7 +30,12 @@
             "paragraph_04": "Change page language"
         },
         "escribir": {
-            "title_01": "Vocabulary Test"
+            "title_01": "Vocabulary Test",
+            "congratulations": "Congratulations!",
+            "back_to_menu": "Back to menu",
+            "skip": "Skip",
+            "score_01": "of",
+            "score_02": "completed"
         },
         "repaso": {
             "title_01": "Word Review"
@@ -41,7 +51,12 @@
             "paragraph_04": "Изменить язык страницы"
         },
         "escribir": {
-            "title_01": "Тест словарного запаса"
+            "title_01": "Тест словарного запаса",
+            "congratulations": "Поздравляю!",
+            "back_to_menu": "Вернуться в меню",
+            "skip": "Пропустить",
+            "score_01": "из",
+            "score_02": "завершено"
         },
         "repaso": {
             "title_01": "Обзор слов"
@@ -57,7 +72,12 @@
             "paragraph_04": "Changer la langue de la page"
         },
         "escribir": {
-            "title_01": "Test de vocabulaire"
+            "title_01": "Test de vocabulaire",
+            "congratulations": "Félicitations!",
+            "back_to_menu": "Retour au menu",
+            "skip": "Sauter",
+            "score_01": "de",
+            "score_02": "terminés"
         },
         "repaso": {
             "title_01": "Choisissez une langue"

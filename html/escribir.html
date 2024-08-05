@@ -31,7 +31,7 @@
 
     <script src="../js/functions.js"></script>
     <script type="module">
-        import { getData, getCategories, getConfig, getElement } from "../js/exports.js"
+        import { getData, getCategories, getConfig, getElement, log } from "../js/exports.js"
 
         // Sonidos
         const correct = document.getElementById('correct');
@@ -45,12 +45,19 @@
         let config = await getConfig();
         let words, score = 0, failCount = 0;
         let categories = await getCategories({ ...config });
+        let congratulationsMsg, backToMenuMsg, skipMsg, score01Msg, score02Msg;
 
         async function init() {
             setFlag(config.idiomaObjetivo);
-            fillCategories(categories, getData, config, loadData);
-            let text = await getPageText(config, "index");
+            fillCategories(categories, config, loadData);
+            let text = await getPageText(config, "escribir");
             getElement("title_01").innerText = text.title_01;
+            congratulationsMsg = text.congratulations;
+            backToMenuMsg = text.back_to_menu;
+            skipMsg = text.skip;
+            console.log(skipMsg)
+            score01Msg = text.score_01;
+            score02Msg = text.score_02;
         }
 
         function loadData(dataToFill){
@@ -73,8 +80,8 @@
             totalScore.textContent = words.length; // Valor inicial
 
             // Crea el nodo de texto para "de" y "terminados"
-            const textNode1 = document.createTextNode(' de ');
-            const textNode2 = document.createTextNode(' terminados');
+            const textNode1 = document.createTextNode(' ' + score01Msg + ' ');
+            const textNode2 = document.createTextNode(' ' + score02Msg);
 
             // Agrega todos los elementos al párrafo en el orden correcto
             text.appendChild(actualScoreB);
@@ -86,8 +93,6 @@
 
             showNetxWord()
         }
-
-
 
         function showNetxWord(){
             while (exercisesDiv.firstChild) {
@@ -111,9 +116,9 @@
                 const congratulatios = document.createElement('div');
                 congratulatios.classList.add('congratulatios');
                 const paragraph = document.createElement('p');
-                paragraph.innerText = "Felicidades!";
+                paragraph.innerText = congratulationsMsg;
                 const link = document.createElement('a');
-                link.innerText = "Regresar al menu";
+                link.innerText = backToMenuMsg;
                 link.href = "./../index.html";
 
                 congratulatios.appendChild(paragraph);
@@ -130,7 +135,7 @@
             div.classList.add('separator');
 
             const wordParagraph = document.createElement('p');
-            wordParagraph.textContent = word.word;
+            wordParagraph.textContent = capitalizeFirstLetter(word.word);
 
             const container = document.createElement('div');
             container.classList.add('input-container');
@@ -160,14 +165,13 @@
                         }
                         wrong.play();
 
-                        console.log(failCount)
                         console.log(word)
                     }
                 }
             });
 
             const skip = document.createElement('p');
-            skip.innerText = 'Saltar';
+            skip.innerText = skipMsg;
             skip.classList.add('skip');
             skip.addEventListener('click', function(){
                 let newArray = words.filter(function(item) {

@@ -1,0 +1,55 @@
+{
+  "numeros": {
+    "categoryName": "Numbers",
+    "data": [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen",
+      "sixteen",
+      "seventeen",
+      "eighteen",
+      "nineteen",
+      "twenty"
+    ]
+  },
+  "dias_de_la_semana": {
+    "categoryName": "Days of the week",
+    "data": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ]
+  },
+  "colores": {
+    "categoryName": "Colors",
+    "data": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow",
+      "Black",
+      "White"
+    ]
+  },
+  "comida": {
+    "categoryName": "Food",
+    "data": ["Bread", "Cheese", "Apple", "Chicken", "Rice", "Fish"]
+  }
+}

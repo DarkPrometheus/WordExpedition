@@ -20,17 +20,15 @@ export async function getData({idiomaBase, idiomaObjetivo, key}) {
 
 export async function getCategories({idiomaBase}) {
     try {
-        const response = await fetch("../data/categories.json");
+        const response = await fetch("../data/data/" + idiomaBase + ".json");
         const data = await response.json();
-
+        const imgResponse = await fetch("../data/categories_images.json");
+        const images = await imgResponse.json();
         let categories = [];
-        data.es.forEach(element => {
-            categories.push({id: element.toLowerCase(), nombre: ""});
-        });
 
-        for (let i = 0; i < categories.length; i++) {
-            categories[i].nombre = data[idiomaBase][i];
-        }
+        Object.keys(data).forEach(element => {
+            categories.push(new Category(element, data[element].categoryName, images[element]));
+        });
 
         return categories;
     } catch (error) {
@@ -38,7 +36,6 @@ export async function getCategories({idiomaBase}) {
         throw error;
     }
 }
-
 
 export async function getConfig(){
     let config = { idiomaBase: "es", idiomaObjetivo: "fr" }
@@ -81,6 +78,10 @@ export function getElement(element){
     return document.getElementById(element);
 }
 
+export function log(element){
+    console.log(element);
+}
+
 /** Objetos **/
 class Word {
     constructor(word, meaning) {
@@ -94,5 +95,13 @@ class Audio{
     constructor(name, link){
         this.name = name;
         this.link = link;
+    }
+}
+
+class Category{
+    constructor(id, name, img){
+        this.id = id,
+        this.name = name;
+        this.img = img;
     }
 }

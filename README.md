@@ -25,3 +25,5 @@ Over time, new features and more categories are planned to enrich the site.
 ## Missing Content
 
 Audio files for Spanish, English, and Russian in the currently available categories are still to be added.
+
+For French, there only are audios for the days of the week, and for the numbers there only are audios from 0 to 10.

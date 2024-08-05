@@ -11,30 +11,38 @@ function redirectPage(id) {
     }
 }
 
-function fillCategories(categories, getData, config, loadData){
+function fillCategories(categories, config, loadData){
     const categoriesDiv = document.getElementById('categories');
 
     categories.forEach(categorie =>{
         const elementDiv = document.createElement('div');
         elementDiv.classList.add('element');
-        elementDiv.id = categorie.id
+        elementDiv.id = categorie.id;
 
         const img = document.createElement('img');
+        img.src = "../img/categories/" + categorie.img;
         img.id = categorie.id;
-        img.src = "../img/categories/" + categorie.id + ".svg"
-        console.log(categorie.id)
 
         const p = document.createElement('p');
+        p.textContent = categorie.name;
         p.id = categorie.id;
-        p.textContent = categorie.nombre
 
         elementDiv.addEventListener('click', async function (event) {
-            config.key = event.srcElement.id
-            console.log(event.srcElement)
+            let key = event.srcElement.id;
 
-            let dataToFiil = await getData(config);
+            const responseObjetivo = await fetch("../data/data/" + config.idiomaObjetivo + ".json");
+            const dataObjetivo = await responseObjetivo.json();
+
+            const responseBase = await fetch("../data/data/" + config.idiomaBase + ".json");
+            const dataBase = await responseBase.json();
+
+            let words = [];
+            for (let i = 0; i < dataBase[key].data.length; i++) {
+                words.push(new Word(dataBase[key].data[i], dataObjetivo[key].data[i]));
+            }
+
             categoriesDiv.remove()
-            loadData(dataToFiil)
+            loadData(words)
         });
 
         elementDiv.appendChild(img);
@@ -95,4 +103,16 @@ async function getPageText(config, idPage) {
     } catch (error) {
         console.error('Error al leer el archivo JSON:', error);
     }
+}
+
+class Word {
+    constructor(word, meaning) {
+        this.word = word;
+        this.meaning = meaning;
+        this.correct = false;
+    }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -339,11 +339,15 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
     margin-top: 0.5rem;
   }
   body .content .title-container .title h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0 0 0 1.5rem;
   }
   body .content .title-container .controls {
     padding: 0 1rem 0 0;
+  }
+  body .content .title-container .controls img {
+    width: 2rem;
+    height: 2rem;
   }
   body .content .menu {
     padding-top: 2rem;
@@ -399,7 +403,7 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
   }
   body .content .score {
     margin-top: 2rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   body .content .exercises {
     display: flex;
@@ -414,23 +418,26 @@ body .content .menu ul li .descripcion:hover h2, body .content #categories .elem
   }
   body .content .exercises .row .separator {
     width: 100%;
-    display: flex;
-    flex-direction: "row";
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
   }
   body .content .exercises .row .separator p {
-    font-size: 2rem;
-    width: 40%;
+    font-size: 1.5rem;
+    width: 100%;
     text-align: center;
+    margin-bottom: 0.5rem;
   }
   body .content .exercises .row .separator .input-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 100%;
   }
   body .content .exercises .row .separator .input-container input {
     width: 10rem;
+    height: 2rem;
     font-size: 1rem;
   }
   body .content .congratulatios {

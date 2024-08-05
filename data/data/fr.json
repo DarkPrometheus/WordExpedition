@@ -1,0 +1,55 @@
+{
+  "numeros": {
+    "categoryName": "Nombres",
+    "data": [
+      "zéro",
+      "un",
+      "deux",
+      "trois",
+      "quatre",
+      "cinq",
+      "six",
+      "sept",
+      "huit",
+      "neuf",
+      "dix",
+      "onze",
+      "douze",
+      "treize",
+      "quatorze",
+      "quinze",
+      "seize",
+      "dix-sept",
+      "dix-huit",
+      "dix-neuf",
+      "vingt"
+    ]
+  },
+  "dias_de_la_semana": {
+    "categoryName": "Jours de la semaine",
+    "data": [
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi",
+      "dimanche"
+    ]
+  },
+  "colores": {
+    "categoryName": "Couleurs",
+    "data": [
+      "Rouge",
+      "Bleu",
+      "Vert",
+      "Jaune",
+      "Noir",
+      "Blanc"
+    ]
+  },
+  "comida":{
+    "categoryName": "Nourriture",
+      "data": ["Pain", "Fromage", "Pomme", "Poulet", "Riz", "Poisson"]
+  }
+}

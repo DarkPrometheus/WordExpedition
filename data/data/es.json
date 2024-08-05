@@ -1,0 +1,55 @@
+{
+  "numeros": {
+    "categoryName": "Numeros",
+    "data": [
+      "cero",
+      "uno",
+      "dos",
+      "tres",
+      "cuatro",
+      "cinco",
+      "seis",
+      "siete",
+      "ocho",
+      "nueve",
+      "diez",
+      "once",
+      "doce",
+      "trece",
+      "catorce",
+      "quince",
+      "dieciséis",
+      "diecisiete",
+      "dieciocho",
+      "diecinueve",
+      "veinte"
+    ]
+  },
+  "dias_de_la_semana": {
+    "categoryName": "Dias de la semana",
+    "data": [
+      "lunes",
+      "martes",
+      "miércoles",
+      "jueves",
+      "viernes",
+      "sábado",
+      "domingo"
+    ]
+  },
+  "colores": {
+    "categoryName": "Colores",
+    "data": [
+      "Rojo",
+      "Azul",
+      "Verde",
+      "Amarillo",
+      "Negro",
+      "Blanco"
+    ]
+  },
+  "comida":{
+    "categoryName": "Comida",
+      "data": ["Pan", "Queso", "Manzana", "Pollo", "Arroz", "Pescado"]
+  }
+}
