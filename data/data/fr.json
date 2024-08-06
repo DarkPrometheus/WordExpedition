@@ -45,11 +45,23 @@
       "Vert",
       "Jaune",
       "Noir",
-      "Blanc"
+      "Blanc",
+      "Orange",
+      "Violet",
+      "Marron",
+      "Rose",
+      "Gris"
     ]
   },
-  "comida":{
+  "comida": {
     "categoryName": "Nourriture",
-      "data": ["Pain", "Fromage", "Pomme", "Poulet", "Riz", "Poisson"]
+    "data": [
+      "Pain",
+      "Fromage",
+      "Pomme",
+      "Poulet",
+      "Riz",
+      "Poisson"
+    ]
   }
 }

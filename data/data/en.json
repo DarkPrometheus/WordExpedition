@@ -45,11 +45,23 @@
       "Green",
       "Yellow",
       "Black",
-      "White"
+      "White",
+      "Orange",
+      "Purple",
+      "Brown",
+      "Pink",
+      "Grey"
     ]
   },
   "comida": {
     "categoryName": "Food",
-    "data": ["Bread", "Cheese", "Apple", "Chicken", "Rice", "Fish"]
+    "data": [
+      "Bread",
+      "Cheese",
+      "Apple",
+      "Chicken",
+      "Rice",
+      "Fish"
+    ]
   }
 }

@@ -45,11 +45,23 @@
       "Verde",
       "Amarillo",
       "Negro",
-      "Blanco"
+      "Blanco",
+      "Naranja",
+      "Púrpura",
+      "Marrón",
+      "Rosa",
+      "Gris"
     ]
   },
-  "comida":{
+  "comida": {
     "categoryName": "Comida",
-      "data": ["Pan", "Queso", "Manzana", "Pollo", "Arroz", "Pescado"]
+    "data": [
+      "Pan",
+      "Queso",
+      "Manzana",
+      "Pollo",
+      "Arroz",
+      "Pescado"
+    ]
   }
 }

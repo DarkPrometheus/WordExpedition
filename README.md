@@ -19,8 +19,8 @@ Over time, new features and more categories are planned to enrich the site.
 ## Upcoming Categories
 
 - Seasons of the year
-- Food
 - Drinks
+- Verbs and conjugations
 
 ## Missing Content
 
